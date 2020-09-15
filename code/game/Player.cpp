@@ -10885,13 +10885,13 @@ void idPlayer::GetViewPos( idVec3 &origin, idMat3 &axis ) const {
   		origin += shakeOffset;
   		axis = (shakeAngleOffset + playerView.AngleOffset()).ToMat3() * axis;
 	} else {
-  		idVec3		shakeOffset;
-  		idAngles	shakeAngleOffset;
+  		//idVec3		shakeOffset;
+  		//idAngles	shakeAngleOffset;
 	   	idBounds	relBounds(idVec3(0, 0, 0), idVec3(0, 0, 0));
 
-  		playerView.ShakeOffsets( shakeOffset, shakeAngleOffset, relBounds );
+  		//playerView.ShakeOffsets( shakeOffset, shakeAngleOffset, relBounds );
 		origin = GetEyePosition() - idVec3(0, 0, 50.0f); // jmarshall - hack offset.
-		angles = viewAngles + viewBobAngles + shakeAngleOffset + playerView.AngleOffset();
+		angles = viewAngles + playerView.AngleOffset();
 
 		axis = angles.ToMat3() * physicsObj.GetGravityAxis();
 

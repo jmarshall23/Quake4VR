@@ -128,38 +128,38 @@ void R_SetStereoProjectionMatrix(void)
 
 	float* projectionMatrix = &(*backEnd_viewDef)->projectionMatrix[0];
 
-	//vr::HmdMatrix44_t mat;
-	//if(currentEye == 0) {
-	//	mat = hmd->GetProjectionMatrix(vr::Eye_Left, 0.5, 2000, vr::EGraphicsAPIConvention::API_OpenGL);
-	//}
-	//else {
-	//	mat = hmd->GetProjectionMatrix(vr::Eye_Right, 0.5, 2000, vr::EGraphicsAPIConvention::API_OpenGL);
-	//}
-	//
-	//memcpy(projectionMatrix, 0, sizeof(float) * 16);
+	vr::HmdMatrix44_t mat;
+	if(currentEye == 0) {
+		mat = hmd->GetProjectionMatrix(vr::Eye_Left, 0.5, 2000, vr::EGraphicsAPIConvention::API_OpenGL);
+	}
+	else {
+		mat = hmd->GetProjectionMatrix(vr::Eye_Right, 0.5, 2000, vr::EGraphicsAPIConvention::API_OpenGL);
+	}
+	
+	memcpy(projectionMatrix, &mat, sizeof(float) * 16);
 
-	projectionMatrix[0 * 4 + 0] = 2.0f / width;
-	projectionMatrix[1 * 4 + 0] = 0.0f;
-	projectionMatrix[2 * 4 + 0] = (xmax + xmin) / width;	// normally 0
-	projectionMatrix[3 * 4 + 0] = 0.0f;
-	
-	projectionMatrix[0 * 4 + 1] = 0.0f;
-	projectionMatrix[1 * 4 + 1] = 2.0f / height;
-	projectionMatrix[2 * 4 + 1] = (ymax + ymin) / height;	// normally 0
-	projectionMatrix[3 * 4 + 1] = 0.0f;
-	
-	// this is the far-plane-at-infinity formulation, and
-	// crunches the Z range slightly so w=0 vertexes do not
-	// rasterize right at the wraparound point
+	//projectionMatrix[0 * 4 + 0] = 2.0f / width;
+	//projectionMatrix[1 * 4 + 0] = 0.0f;
+	//projectionMatrix[2 * 4 + 0] = (xmax + xmin) / width;	// normally 0
+	//projectionMatrix[3 * 4 + 0] = 0.0f;
+	//
+	//projectionMatrix[0 * 4 + 1] = 0.0f;
+	//projectionMatrix[1 * 4 + 1] = 2.0f / height;
+	//projectionMatrix[2 * 4 + 1] = (ymax + ymin) / height;	// normally 0
+	//projectionMatrix[3 * 4 + 1] = 0.0f;
+	//
+	//// this is the far-plane-at-infinity formulation, and
+	//// crunches the Z range slightly so w=0 vertexes do not
+	//// rasterize right at the wraparound point
 	projectionMatrix[0 * 4 + 2] = 0.0f;
 	projectionMatrix[1 * 4 + 2] = 0.0f;
-	projectionMatrix[2 * 4 + 2] = -0.999f; // adjust value to prevent imprecision issues
-	projectionMatrix[3 * 4 + 2] = -2.0f * zNear;
-	
-	projectionMatrix[0 * 4 + 3] = 0.0f;
-	projectionMatrix[1 * 4 + 3] = 0.0f;
+	//projectionMatrix[2 * 4 + 2] = -0.999f; // adjust value to prevent imprecision issues
+	//projectionMatrix[3 * 4 + 2] = -2.0f * zNear;
+	//
+	//projectionMatrix[0 * 4 + 3] = 0.0f;
+	//projectionMatrix[1 * 4 + 3] = 0.0f;
 	projectionMatrix[2 * 4 + 3] = -1.0f;
-	projectionMatrix[3 * 4 + 3] = 0.0f;
+	//projectionMatrix[3 * 4 + 3] = 0.0f;
 }
 
 void RB_BeginDrawingView(void) {
@@ -191,10 +191,10 @@ void RB_STD_DrawView(void) {
 	memcpy(oldProjectionMatrix, &(*backEnd_viewDef)->projectionMatrix[0], sizeof(float) * 16);	
 
 	if((*backEnd_viewDef)->renderView.shaderParms[11] == 1000.0f) {
-		currentEye = 0;
+		currentEye = 1;
 	}
 	else if ((*backEnd_viewDef)->renderView.shaderParms[11] == 1001.0f) {
-		currentEye = 1;
+		currentEye = 0;
 	}
 	else {
 		currentEye = -1;

@@ -526,7 +526,7 @@ void idPlayerView::SingleView( idUserInterface *hud, const renderView_t *view, i
 			idVec3 eyeOffset = idVec3(vrConfig.openVRHalfIPD, vrConfig.openVRHalfIPD, vrConfig.openVRHalfIPD);
 			eyeOffset *= eyeView.viewaxis[1];
 			leftEyeView.vieworg += eyeOffset;
-			leftEyeView.shaderParms[11] = 1000.0f;
+			leftEyeView.shaderParms[11] = 1001.0f;
 			gameRenderWorld->RenderScene(&leftEyeView, renderFlags | RF_PENUMBRA_MAP);
 		}
 
@@ -535,7 +535,7 @@ void idPlayerView::SingleView( idUserInterface *hud, const renderView_t *view, i
 			idVec3 eyeOffset = -idVec3(vrConfig.openVRHalfIPD, vrConfig.openVRHalfIPD, vrConfig.openVRHalfIPD);
 			eyeOffset *= eyeView.viewaxis[1];
 			rightEyeView.vieworg += eyeOffset;
-			rightEyeView.shaderParms[11] = 1001.0f;
+			rightEyeView.shaderParms[11] = 1000.0f;
 			gameRenderWorld->RenderScene(&rightEyeView, renderFlags | RF_PENUMBRA_MAP);
 		}
 

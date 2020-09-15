@@ -2,19 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LocalDebuggerCommand>D:\projects\Quake4\quake4vr.exe</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments> +devmap game/hangar1 +set in_mouse -1 +set r_brightness 1 +set com_allowconsole 1 +set r_fullscreen 0 +set fs_game q4vr +set r_mode -1 +set r_customwidth 1920 +set r_customheight 1080</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>  +devmap game/hangar1 +set in_mouse -1 +set r_brightness 1 +set com_allowconsole 1 +set r_fullscreen 0 +set fs_game q4vr +set r_mode -1 +set r_customwidth 1920 +set r_customheight 1080</LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory>D:\projects\Quake4</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugInline|Win32'">
     <LocalDebuggerCommand>D:\projects\Quake4\quake4vr.exe</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments> +devmap game/hangar1 +set in_mouse -1 +set r_brightness 1 +set com_allowconsole 1 +set r_fullscreen 0 +set fs_game q4vr +set r_mode -1 +set r_customwidth 1920 +set r_customheight 1080</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>  +devmap game/hangar1 +set in_mouse -1 +set r_brightness 1 +set com_allowconsole 1 +set r_fullscreen 0 +set fs_game q4vr +set r_mode -1 +set r_customwidth 1920 +set r_customheight 1080</LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory>D:\projects\Quake4</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LocalDebuggerCommand>D:\projects\Quake4\quake4vr.exe</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments> +devmap game/hangar1 +set in_mouse -1 +set r_brightness 1 +set com_allowconsole 1 +set r_fullscreen 0 +set fs_game q4vr +set r_mode -1 +set r_customwidth 1920 +set r_customheight 1080</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>  +devmap game/hangar1 +set in_mouse -1 +set r_brightness 1 +set com_allowconsole 1 +set r_fullscreen 0 +set fs_game q4vr +set r_mode -1 +set r_customwidth 1920 +set r_customheight 1080</LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory>D:\projects\Quake4</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
