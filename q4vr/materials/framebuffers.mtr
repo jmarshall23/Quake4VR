@@ -1,0 +1,13 @@
+vr/lefteye
+{
+	{
+		map _forwardAlbedo0
+	}
+}
+
+vr/righteye
+{
+	{
+		map _forwardAlbedo1
+	}
+}

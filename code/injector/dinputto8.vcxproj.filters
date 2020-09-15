@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="IDirectInputEffect.cpp" />
+    <ClCompile Include="Versions\IDirectInput2A.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInput2W.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInput7A.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInput7W.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInputA.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInputDevice2A.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInputDevice2W.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInputDevice7A.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInputDevice7W.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInputDeviceA.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInputDeviceW.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="Versions\IDirectInputW.cpp">
+      <Filter>Versions</Filter>
+    </ClCompile>
+    <ClCompile Include="IDirectInputX.cpp" />
+    <ClCompile Include="IDirectInputDeviceX.cpp" />
+    <ClCompile Include="dinputto8.cpp" />
+    <ClCompile Include="InterfaceQuery.cpp" />
+    <ClCompile Include="Logging\Logging.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="IDirectInputTypes.cpp" />
+    <ClCompile Include="IDirectInputEnum.cpp" />
+    <ClCompile Include="External\Logging\Logging2.cpp">
+      <Filter>External\Logging</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IDirectInputEffect.h" />
+    <ClInclude Include="Versions\IDirectInput2A.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInput2W.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInput7A.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInput7W.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInputA.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInputDevice2A.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInputDevice2W.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInputDevice7A.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInputDevice7W.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInputDeviceA.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInputDeviceW.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="Versions\IDirectInputW.h">
+      <Filter>Versions</Filter>
+    </ClInclude>
+    <ClInclude Include="IDirectInputX.h" />
+    <ClInclude Include="IDirectInputDeviceX.h" />
+    <ClInclude Include="External\Logging\Logging.h">
+      <Filter>External\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="dinputto8.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="AddressLookupTable.h" />
+    <ClInclude Include="Logging\Logging.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="IDirectInputTypes.h" />
+    <ClInclude Include="IDirectInputEnum.h" />
+    <ClInclude Include="ditypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dinput.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Versions">
+      <UniqueIdentifier>{dab371b0-0104-4561-873e-4b46d6c55732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{936e3373-bf15-47fa-9a48-f4d6b81bd647}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\Logging">
+      <UniqueIdentifier>{8c10d327-5b6a-46b9-bbca-a46b90092d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{f892643b-ec23-4837-8688-9750b30498f7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BuildNo.rc" />
+    <ResourceCompile Include="dinputto8.rc" />
+  </ItemGroup>
+</Project>

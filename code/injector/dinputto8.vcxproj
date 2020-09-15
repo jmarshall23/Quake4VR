@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0C32F7D5-4261-4E29-BBCB-93364B10A7BC}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>dinput</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>dinput</TargetName>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\Intermediate\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>dinput</TargetName>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\Intermediate\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <ObjectFileName>$(SolutionDir)bin\Intermediate\$(Configuration)\Object\%(RelativeDir)</ObjectFileName>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>dinput.def</ModuleDefinitionFile>
+      <OutputFile>../../dinput.dll</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(SolutionDir)bin\Intermediate\$(Configuration)\Object\%(RelativeDir)</ObjectFileName>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>DINPUTTO8NOLOG;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>dinput.def</ModuleDefinitionFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>../../dinput.dll</OutputFile>
+    </Link>
+    <PreBuildEvent>
+      <Command>cmd /c "@echo off &amp;&amp; cd /D ""$(ProjectDir)"" &amp;&amp; if not exist BuildNo.rc echo #define BUILD_NUMBER 0 &gt;BuildNo.rc"
+cmd /c "@echo off &amp;&amp; cd /D ""$(ProjectDir)"" &amp;&amp; FOR /F "tokens=3" %%i IN (BuildNo.rc) DO set /a var=%%i+1 &gt;Build.txt"
+cmd /c "@echo off &amp;&amp; cd /D ""$(ProjectDir)"" &amp;&amp; FOR /F %%i IN (Build.txt) DO echo #define BUILD_NUMBER %%i &gt;BuildNo.rc"
+cmd /c "@echo off &amp;&amp; cd /D ""$(ProjectDir)"" &amp;&amp; del Build.txt"
+cmd /c "@echo off &amp;&amp; cd /D ""$(ProjectDir)"" &amp;&amp; type BuildNo.rc"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="External\Logging\Logging2.cpp" />
+    <ClCompile Include="IDirectInputDeviceX.cpp" />
+    <ClCompile Include="IDirectInputEffect.cpp" />
+    <ClCompile Include="IDirectInputEnum.cpp" />
+    <ClCompile Include="dinputto8.cpp" />
+    <ClCompile Include="IDirectInputTypes.cpp" />
+    <ClCompile Include="IDirectInputX.cpp" />
+    <ClCompile Include="InterfaceQuery.cpp" />
+    <ClCompile Include="Logging\Logging.cpp" />
+    <ClCompile Include="Versions\IDirectInput2A.cpp" />
+    <ClCompile Include="Versions\IDirectInput2W.cpp" />
+    <ClCompile Include="Versions\IDirectInput7A.cpp" />
+    <ClCompile Include="Versions\IDirectInput7W.cpp" />
+    <ClCompile Include="Versions\IDirectInputA.cpp" />
+    <ClCompile Include="Versions\IDirectInputDevice2A.cpp" />
+    <ClCompile Include="Versions\IDirectInputDevice2W.cpp" />
+    <ClCompile Include="Versions\IDirectInputDevice7A.cpp" />
+    <ClCompile Include="Versions\IDirectInputDevice7W.cpp" />
+    <ClCompile Include="Versions\IDirectInputDeviceA.cpp" />
+    <ClCompile Include="Versions\IDirectInputDeviceW.cpp" />
+    <ClCompile Include="Versions\IDirectInputW.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dinput.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dinputto8.h" />
+    <ClInclude Include="ditypes.h" />
+    <ClInclude Include="IDirectInputTypes.h" />
+    <ClInclude Include="Logging\Logging.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="External\Logging\Logging.h" />
+    <ClInclude Include="IDirectInputDeviceX.h" />
+    <ClInclude Include="IDirectInputEffect.h" />
+    <ClInclude Include="IDirectInputEnum.h" />
+    <ClInclude Include="IDirectInputX.h" />
+    <ClInclude Include="Versions\IDirectInput2A.h" />
+    <ClInclude Include="Versions\IDirectInput2W.h" />
+    <ClInclude Include="Versions\IDirectInput7A.h" />
+    <ClInclude Include="Versions\IDirectInput7W.h" />
+    <ClInclude Include="Versions\IDirectInputA.h" />
+    <ClInclude Include="Versions\IDirectInputDevice2A.h" />
+    <ClInclude Include="Versions\IDirectInputDevice2W.h" />
+    <ClInclude Include="Versions\IDirectInputDevice7A.h" />
+    <ClInclude Include="Versions\IDirectInputDevice7W.h" />
+    <ClInclude Include="Versions\IDirectInputDeviceA.h" />
+    <ClInclude Include="Versions\IDirectInputDeviceW.h" />
+    <ClInclude Include="Versions\IDirectInputW.h" />
+    <ClInclude Include="AddressLookupTable.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BuildNo.rc" />
+    <ResourceCompile Include="dinputto8.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
