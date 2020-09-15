@@ -903,6 +903,12 @@ bool VR_RightControllerIsPressed()
 	return (g_vrRightControllerState.ulButtonPressed & mask) != 0;
 }
 
+bool VR_RightControllerTriggerIsPressed() 
+{
+	static uint64_t mask = vr::ButtonMaskFromId(vr::k_EButton_SteamVR_Trigger);
+	return (g_vrRightControllerState.ulButtonPressed & mask) != 0;
+}
+
 const idVec3& VR_GetSeatedOrigin()
 {
 	return g_SeatedOrigin;

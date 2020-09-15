@@ -331,7 +331,7 @@ void rvViewWeapon::PresentWeapon( bool showViewModel ) {
 	renderEntity.allowSurfaceInViewID = weapon->GetOwner()->entityNumber + 1;
 
 	// crunch the depth range so it never pokes into walls this breaks the machine gun gui
-	renderEntity.weaponDepthHackInViewID = weapon->GetOwner()->entityNumber + 1;
+	//renderEntity.weaponDepthHackInViewID = weapon->GetOwner()->entityNumber + 1;
 
 	weapon->Think();
 

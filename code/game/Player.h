@@ -990,6 +990,12 @@ private:
 	rvClientEffectPtr		teamDoubler;
 	bool					teamDoublerPending;
 
+	idMat3					vrFaceForward;
+	idVec3					vrRightControllerOrigin;
+	idMat3					vrRightControllerAxis;
+	idVec3					vrHeadOrigin;
+	idMat3					vrHeadAxis;
+
 	idVec4					hitscanTint;
 	// end mp
 

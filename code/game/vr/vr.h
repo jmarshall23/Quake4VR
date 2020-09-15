@@ -48,6 +48,7 @@ bool VR_LeftControllerWasPressed();
 bool VR_LeftControllerIsPressed();
 bool VR_RightControllerWasPressed();
 bool VR_RightControllerIsPressed();
+bool VR_RightControllerTriggerIsPressed();
 bool VR_CalculateView(idVec3& origin, idMat3& axis, const idVec3& eyeOffset, bool overridePitch);
 
 const idVec3& VR_GetSeatedOrigin();

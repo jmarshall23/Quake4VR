@@ -87,6 +87,7 @@ void VR_Init(void)
 	VR_UpdateScaling();
 
 	vrConfig.openVRSeated = true;
+	vrConfig.openVREnabled = true;
 	g_openVRLeftController = vr::k_unTrackedDeviceIndexInvalid;
 	g_openVRRightController = vr::k_unTrackedDeviceIndexInvalid;
 	VR_UpdateControllers();

@@ -7815,6 +7815,34 @@ void idPlayer::UpdateViewAngles( void ) {
 		}
 	}
 
+
+	if (vrConfig.openVREnabled)
+	{
+		if (vr_seated.GetBool())
+		{
+			vrFaceForward = VR_GetSeatedAxisInverse();
+			//hadBodyYaw = false;
+		}
+		else
+		{
+			float yaw;
+			yaw = vrHeadAxis.ToAngles().yaw;
+			vrFaceForward = idAngles(0, -yaw, 0).ToMat3();
+			//if (hadBodyYaw)
+			//{
+			//	viewAngles[YAW] += yaw - oldBodyYaw;
+			//}
+			//hadBodyYaw = true;
+			//oldBodyYaw = yaw;
+		}
+		
+	}
+	else
+	{
+		vrFaceForward.Identity();
+		//hadBodyYaw = false;
+	}
+
 	UpdateDeltaViewAngles( viewAngles );
 
 	// orient the model towards the direction we're looking
@@ -9309,6 +9337,8 @@ void idPlayer::Think( void ) {
 		g_crosshairColor.ClearModified();
 	}
 #endif
+	VR_GetRightController(vrRightControllerOrigin, vrRightControllerAxis);
+	VR_GetHead(vrHeadOrigin, vrHeadAxis);
 
  	// Dont do any thinking if we are in modview
 	if ( gameLocal.editors & EDITOR_MODVIEW || gameEdit->PlayPlayback() ) {
@@ -9349,6 +9379,14 @@ void idPlayer::Think( void ) {
 	// grab out usercmd
 	usercmd_t oldCmd = usercmd;
 	usercmd = gameLocal.usercmds[ entityNumber ];
+
+// jmarshall - add some inputs based on controller input.
+	if (VR_RightControllerTriggerIsPressed()) {
+		usercmd.buttons |= BUTTON_ATTACK;
+	}
+// jmarshall end
+
+
 	buttonMask &= usercmd.buttons;
 	usercmd.buttons &= ~buttonMask;
 
@@ -10599,6 +10637,18 @@ void idPlayer::CalculateViewWeaponPos( idVec3 &origin, idMat3 &axis ) {
 	// CalculateRenderView must have been called first
 	const idVec3 &viewOrigin = firstPersonViewOrigin;
 	const idMat3 &viewAxis = firstPersonViewAxis;
+
+	if (vrConfig.openVREnabled)
+	{
+		// if we are here, this is a fallback for not being able to hold a weapon
+		origin = viewOrigin + vrRightControllerOrigin;
+
+
+		idAngles angles = vrRightControllerAxis.ToAngles() + idAngles(45.0f, 0.0f, 0.0f);
+		axis = angles.ToMat3();
+
+		return;
+	}
 
 	// these cvars are just for hand tweaking before moving a value to the weapon def
 	idVec3	gunpos( g_gun_x.GetFloat(), g_gun_y.GetFloat(), g_gun_z.GetFloat() );
